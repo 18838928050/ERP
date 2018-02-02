@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="struts-accounts" extends="struts2">
+   		<!-- 账务 作废  guo -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+    	<action name="Accounts_*" class="com.erp.controller.accounts.action.AccountsAction" method="{1}"> 
+    	  <!-- 调账单作废 -->
+    	  <result name="toAdjustBillListForCancel">/WEB-INF/newview/finane/AdjustBillListForCancel.jsp</result>
+    	  <result name="toSelectAdjustBillListForCancel">/WEB-INF/newview/finane/AdjustBillListForCancel.jsp</result>
+    	  <result name="toDisabledAdjustBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledAdjustBill">/WEB-INF/newview/finane/AdjustBillListForCancel.jsp</result>
+    	  <result name="toAdjustBill">/WEB-INF/newview/finane/AdjustBillInfoForCancel.jsp</result>
+    	  <!-- 费用单作废 -->
+    	  <result name="toFeeBillListForCancel">/WEB-INF/newview/finane/FeeBillListForCancel.jsp</result>
+    	  <result name="toSelectFeeBillListForCancel">/WEB-INF/newview/finane/FeeBillListForCancel.jsp</result>
+    	  <result name="toDisabledFeeBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledFeeBill">/WEB-INF/newview/finane/FeeBillListForCancel.jsp</result>
+    	  <result name="toFeeBill">/WEB-INF/newview/finane/FeeBillInfoForCancel.jsp</result>
+    	  <!-- 其他收入 -->
+    	  <result name="toIncomeBillListForCancel">/WEB-INF/newview/finane/IncomeBillListForCancel.jsp</result>
+    	  <result name="toSelectIncomeBillListForCancel">/WEB-INF/newview/finane/IncomeBillListForCancel.jsp</result>
+    	  <result name="toDisabledIncomeBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledIncomeBill">/WEB-INF/newview/finane/IncomeBillListForCancel.jsp</result>
+    	  <result name="toIncomeBill">/WEB-INF/newview/finane/IncomeBillInfoForCancel.jsp</result>
+    	  <!-- 资金借入 -->
+    	  <result name="toInLoanBillListForCancel">/WEB-INF/newview/finane/LoanBillListForCancel.jsp</result>
+    	  <result name="toSelectInLoanBillListForCancel">/WEB-INF/newview/finane/LoanBillListForCancel.jsp</result>
+    	  <result name="toDisabledInLoanBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledInLoanBill">/WEB-INF/newview/finane/LoanBillListForCancel.jsp</result>
+    	  <result name="toInLoanBill">/WEB-INF/newview/finane/LoanBillInfoForCancel.jsp</result>
+    	  <!-- 资金借出 -->
+    	  <result name="toLoanBillOutListForCancel">/WEB-INF/newview/finane/LoanBillOutListForCancel.jsp</result>
+    	  <result name="toSelectOutLoanBillListForCancel">/WEB-INF/newview/finane/LoanBillOutListForCancel.jsp</result>
+    	  <result name="toDisabledOutLoanBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledOutLoanBill">/WEB-INF/newview/finane/LoanBillOutListForCancel.jsp</result>
+    	  <result name="toOutLoanBill">/WEB-INF/newview/finane/LoanBillInfoForCancel.jsp</result>
+    	  <!-- 付款单作废 -->
+    	  <result name="toPayBillListForCancel">/WEB-INF/newview/finane/PayBillListForCancel.jsp</result>
+    	  <result name="toSelectPayBillListForCancel">/WEB-INF/newview/finane/PayBillListForCancel.jsp</result>
+    	  <result name="toDisabledPayBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledPayBill">/WEB-INF/newview/finane/PayBillListForCancel.jsp</result>
+    	  <result name="toPayBill">/WEB-INF/newview/finane/PayBillInfoForCancel.jsp</result>
+    	  <!-- 收款单作废 -->
+    	  <result name="toReceiveBillListForCancel">/WEB-INF/newview/finane/ReceiveBillListForCancel.jsp</result>
+    	  <result name="toDisabledReceiveBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledReceiveBill">/WEB-INF/newview/finane/ReceiveBillListForCancel.jsp</result>
+    	  <result name="toReceiveBill">/WEB-INF/newview/finane/ReceiveBillInfoForCancel.jsp</result>
+    	  <result name="toSelectReceiveBillListForCancel">/WEB-INF/newview/finane/ReceiveBillListForCancel.jsp</result>
+    	  <!-- 转账取款作废 -->
+    	  <result name="toTransferBillListForCancel">/WEB-INF/newview/finane/TransferBillListForCancel.jsp</result>
+    	  <result name="toSelectTransferBillListForCancel">/WEB-INF/newview/finane/TransferBillListForCancel.jsp</result>
+    	  <result name="toDisabledTransferBill">/WEB-INF/newview/system/CancelReasonNew.jsp</result>
+    	  <result name="disabledTransferBill">/WEB-INF/newview/finane/TransferBillListForCancel.jsp</result>
+    	  <result name="toTransferBill">/WEB-INF/newview/finane/TransferBillInfoForCancel.jsp</result>
+    	</action>
+    </package>
+</struts>

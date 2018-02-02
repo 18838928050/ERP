@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <package name="struts-system" extends="struts2">
+   		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+    	<action name="UserRole_*" class="com.erp.systemdata.action.UserRoleAction" method="{1}"> 
+    	  <result name="Demo">/index.jsp</result>
+    	  <result name="toIndex">/WEB-INF/view/base/Index.jsp</result>
+    	  <result name="toMain">/WEB-INF/view/system/Main.jsp</result>
+    	  <result name="toUserRole">/WEB-INF/newview/system/UserList.jsp</result>
+    	  <result name="toUserNew">/WEB-INF/newview/system/UserNew.jsp</result>
+    	  <result name="toUserEdit">/WEB-INF/newview/system/UserEdit.jsp</result>
+    	</action>  
+    	
+    	<!-- 编码规则 -->
+    	<action name="CodeRule_*" class="com.erp.systemdata.action.CodeRuleAction" method="{1}"> 
+    	  <result name="toCodeRuleMain">/WEB-INF/newview/system/CodeRuleMain.jsp</result>
+    	  <result name="findCodeRuleList">/WEB-INF/newview/system/CodeRuleList.jsp</result>
+    	  <result name="toCodeRuleDesc">/WEB-INF/newview/system/CodeRuleEdit.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 工作中心 -->
+    	<action name="WorkCenter_*" class="com.erp.systemdata.action.WorkCenterAction" method="{1}">
+    		<result name="toWorkCenter">/WEB-INF/newview/base/WorkCenterList.jsp</result>
+    		<result name="toNew">/WEB-INF/newview/base/WorkCenterNew.jsp</result>
+    		<result name="toEdit">/WEB-INF/newview/base/WorkCenterEdit.jsp</result>
+    		<result name="toWorkProcessList">/WEB-INF/newview/base/WorkProcessList.jsp</result>
+    	</action>
+    	
+    	<!-- 付款方式 -->
+    	<action name="PayMode_*" class="com.erp.systemdata.action.PayModeAction" method="{1}">
+    		<result name="toPayModeList">/WEB-INF/newview/base/PayModeList.jsp</result>
+    		<result name="toNew">/WEB-INF/newview/base/PayModeNew.jsp</result>
+    		<result name="toEdit">/WEB-INF/newview/base/PayModeEdit.jsp</result>
+    	</action>
+    	<!-- 仓库 -->
+    	<action name="Storehouse_*" class="com.erp.systemdata.action.StoreHousAction" method="{1}">
+    		<result name="toStorehouse">/WEB-INF/newview/base/StorehouseList.jsp</result>
+    		<result name="toEdit">/WEB-INF/newview/base/StorehouseEdit.jsp</result>
+    	</action>
+
+    	<!-- 其它 -->
+    	<action name="TallySet_*" class="com.erp.controller.system.action.TallySetAction" method="{1}">
+    	  <result name="toTallySetList">/WEB-INF/newview/system/TallySetList.jsp</result>
+    	  <result name="toTallySetNew">/WEB-INF/newview/system/TallySetNew.jsp</result>
+    	  <result name="toTallySetEdit">/WEB-INF/newview/system/TallySetEdit.jsp</result>
+    	</action>
+    	
+
+    </package>
+</struts>

@@ -1,0 +1,128 @@
+<!--标识汇交易侧边栏-->
+<li>
+	<div class="link">外协商</div>
+	<ul class="submenu">
+		<li>
+		<!-- 新增外协商---w -->
+			<a href="javascript:showWin(['1024px', '600px'],'waixieshang_toAddCooperNew');">外协商登记</a>
+		</li>
+		<li>
+			<a href="javascript:showEstMoveDialog('COOPERATOR');">外协商移交</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'waixieshang_listall');">全部外协商</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">外协</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'subcontract_toBusinessBillListForCooper');">要外协的业务单</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1280px', '600px'],'cooper/CooperBillSearchResult.html')">外协单一览表</a>
+		</li>
+		<li>
+			<a href="javascript:showCooperBillDialog();">外协开单</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'cooper/CooperBillItemSearchResult.html')">外协明细一览表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'cooperator_cooperBillListForEditPrice')">外协单改价格</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'cooperator_estPriceList?price_type=STA&est_type=COOPERATOR')">外协价格</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'cooper/CooperBillListForExamine.html')">外协单审核</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'CooperAgaincheck_listUI?isCheck=0')">外协单反审核s</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">收货</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'cooperGather_toCooperGather')">外协收货</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'gatherE_toGatherExamine')">审核</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'gatherEUn_toGatherUnExamine')">反审核</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'gatherD_toGatherDetail')">收货单一览表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">完工</div>
+		<ul class="submenu">
+		<li>
+			<a href="cooper_toCooperComp">外协完工</a>
+		</li>
+		<li>
+			<a href="cooperUn_toCooperUnComp">外协反完工</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">结账</div>
+	<ul class="submenu">
+		<li>
+		<a href="javascript:showWin(['850px', '530px'],'establishment_EstablishmentUI');">外协对账</a>
+		<!-- 	<a href="establishment_EstablishmentUI">外协对账</a> -->
+		</li>
+		<li>
+		<a href="javascript:showWin(['850px', '530px'],'reciveingcheck_firstlistSelectUI');">收货对账</a>
+			<!-- <a href="reciveingcheck_firstlistSelectUI">收货对账</a> -->
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">作废</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'subcontract_toCooperBillListForCancel')">外协单作废</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'subcontract_toGatherBillListForCancel')">收货单作废</a>
+		</li>
+	</ul>
+</li>
+<script>
+	//侧边导航栏
+	$(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {
+				el: this.el,
+				multiple: this.multiple
+			}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = $(this),
+				$next = $this.next();
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if(!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+
+		var accordion = new Accordion($('.accordion'), false);
+	});
+</script>

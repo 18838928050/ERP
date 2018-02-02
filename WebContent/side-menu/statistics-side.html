@@ -1,0 +1,139 @@
+<!--统计报表侧边栏-->
+<li>
+	<div class="link">营业</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['900px', '620px'],'finance/BusinessDateCount.html');">销售日报表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'business/MtBusinessDate.html');">项目营业日报表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'business/MtBusinessCount.html');">项目营业汇总表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/StafferExploitList.html');">员工业绩排行表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'business/EstBusinessCount.html');">客户营业汇总表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">利润</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'business/BusinessProfitSearchResult.html');">业务单成本表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '620px'],'finance/ProfitSearch.html');">利润表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '620px'],'finance/ProfitCount.html');">利润汇总表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">应收</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'Statistic_toReceivableList');">客户应收款</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'Statistic_toBusinessBillListForReceive');">业务单应收款</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '620px'],'Statistic_toReceivableCount');">应收汇总表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'Statistic_toReceivableAgeList');">应收款账龄分布表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">应付</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'purchase/PurchaseBillListForPay.html');">采购单应付款</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/PayableList.html');">应付账款</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/PayableCount.html');">应付汇总表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'cooper/CooperBillListForPay.html');">外协单应付款</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">回款</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/BackCostList.html');">销售回款一览表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/ReceiveBillItemSearchResult.html');">结欠回款明细表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/EstBackCount.html');">客户回款汇总表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">付款</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'Statistic_toPurPayCostList');">采购付款一览表</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'Statistic_toCooPayCostList');">外协付款一览表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">资金</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1200px', '620px'],'finance/AccountBalanceList.html?is_tmp=Y');">现金银行</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['700px', '620px'],'finance/LoanBillCount.html?type=IN');">资金借入统计</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['700px', '620px'],'finance/LoanBillCount.html?type=OUT');">资金借出统计</a>
+		</li>
+	</ul>
+</li>
+<script>
+	//侧边导航栏
+	$(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {
+				el: this.el,
+				multiple: this.multiple
+			}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = $(this),
+				$next = $this.next();
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if(!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+
+		var accordion = new Accordion($('.accordion'), false);
+	});
+</script>

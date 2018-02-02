@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <package name="struts-make" extends="struts2"> 
+   		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		
+	    <action name="task_*" class="com.erp.controller.make.action.BusinessBillForTaskAction" method="{1}">
+		<result name="toBusinessBillForTask">/WEB-INF/newview/make/BusinessBillListForTask.jsp</result>
+		</action>
+		
+		<action name="make_*" class="com.erp.controller.make.action.MakeCountAction" method="{1}">
+		<result name="toProducterCount">/WEB-INF/newview/make/OutputCount.jsp</result>
+		</action>
+		
+	    <action name="businessFinish_*" class="com.erp.controller.make.action.BusinessFinishAction" method="{1}">
+		<result name="toBusinessFinish">/WEB-INF/newview/make/BusinessBillListForComplete.jsp</result>
+		<result name="toInOutItemList">/WEB-INF/newview/make/InOutItemListForBusinessBill.jsp</result>
+		<result name="toInfoForLabel">/WEB-INF/newview/make/BusinessBillInfoForLabel.jsp</result>
+		<result name="toInfoForComplete">/WEB-INF/newview/make/BusinessBillInfoForComplete.jsp</result>
+		<result name="toFeeBillNew">/WEB-INF/newview/make/FeeBillNew.jsp</result>
+		</action>
+		
+		<action name="businessUnFinish_*" class="com.erp.controller.make.action.BusinessUnFinishAction" method="{1}">
+		<result name="toBusinessUnFinish">/WEB-INF/newview/make/BusinessBillListForUnComplete.jsp</result>
+		<result name="toInfoForUnComplete">/WEB-INF/newview/make/BusinessBillInfoForUnComplete.jsp</result>
+		</action>
+		
+    </package>
+</struts>

@@ -1,0 +1,117 @@
+<!--基础数据侧边栏-->
+<li>
+	<div class="link">员工</div>
+	<ul class="submenu">
+		<li>
+			<a href="departStaff_toMain">部门与员工</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">客户</div>
+	<ul class="submenu">
+		<li>
+			<a href="customerType_toCustomTypeMain">单位类别</a>
+		</li>
+		<li>
+			<a href="customerLevel_toCustomLevelMain">客户等级</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['600px', '600px'],'place_listUI');">地区管理</a>
+		<!-- 	<a href="place_listUI">地区管理</a> -->
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">业务</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['640px', '500px'],'MakeType_toMakeTypeList');">项目类型</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['640px', '500px'],'MakeRequire_toMakeRequireList');">制作要求</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['640px', '500px'],'base/AccessoryMark_toAccessoryMarkList');">文件说明</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['640px', '400px'],'WorkCenter_toWorkCenter');">工作中心</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['400px', '300px'],'PayMode_toPayModeList');">付款方式</a>
+		</li>
+		<li>
+			<a href="#">价格手册</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">材料</div>
+	<ul class="submenu">
+		<li>
+			<a href="product_toProductMain">材料</a>
+		</li>
+		<li>
+			<a href="unit_toUnitList">计量单位</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">仓库</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['600px', '400px'],'Storehouse_toStorehouse');">仓库</a>
+		</li>
+		<li>j
+			<a href="javascript:showWin(['600px', '500px'],'base/InTypeList.html');">入库类型</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['600px', '500px'],'base/OutTypeList.html');">出库类型</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">财务</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1100px','530px'],'moneybill_BankAccountUI');">银行账户</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['600px','530px'],'incometype_IncomeTypeUI');">收入类型0</a>
+		</li>
+		<li>
+			<a  href="javascript:showWin(['600px', '530px'],'feetype_FeeTypeUI');">费用类型33</a>
+		</li>
+	</ul>
+</li>
+<script>
+	//侧边导航栏
+	$(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {
+				el: this.el,
+				multiple: this.multiple
+			}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = $(this),
+				$next = $this.next();
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if(!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+
+		var accordion = new Accordion($('.accordion'), false);
+	});
+</script>

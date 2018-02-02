@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts-delivery" extends="struts2" namespace="/">
+		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="Delivery_*" class="com.erp.controller.delivery.action.DeliverAction"
+			method="{1}">
+			<result name="toBusinessBillListForDeliver">/WEB-INF/newview/business/BusinessBillListForDeliver.jsp
+			</result>
+			<result name="toDeliverBillListForExamine">/WEB-INF/newview/business/DeliverBillListForExamine.jsp
+			</result>
+			<result name="toDeliverBillListForUnExamine">/WEB-INF/newview/business/DeliverBillListForUnExamine.jsp
+			</result>
+			<result name="toDeliverBillSearchResult">/WEB-INF/newview/business/DeliverBillSearchResult.jsp
+			</result>
+			<result name="toDeliverBillItemSearchResult">/WEB-INF/newview/business/DeliverBillItemSearchResult.jsp
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 外协 作废 外协单作废 收货单作废 -->
+	<package name="struts-subcontractCancel" extends="struts2"
+		namespace="/">
+		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="subcontract_*"
+			class="com.erp.controller.subcontractCancel.action.CooperAction"
+			method="{1}">
+
+			<!-- JiaQi -->
+			<result name="toCooperBillItem">/WEB-INF/newview/cooper/BusinessBillItemListAlone.jsp
+			</result>
+			<result name="toBusinessBillListForCooper">/WEB-INF/newview/cooper/BusinessBillListForCooper.jsp
+			</result>
+			<!-- JiaQi -->
+			<result name="toCooperBillListForCancel">/WEB-INF/view/subcontractCancel/CooperBillListForCancel.jsp
+			</result>
+			<result name="cooperBillListForCancel">/WEB-INF/view/subcontractCancel/CooperBillListForCancel.jsp
+			</result>
+
+			<!-- <result name="cooperBillCancel">/WEB-INF/view/subcontractCancel/CooperBillListForCancel.jsp</result> 
+				<result name="toGatherBillListForCancel">/WEB-INF/view/subcontractCancel/GatherBillListForCancel.jsp</result> 
+				<result name="gatherBillListForCancel">/WEB-INF/view/subcontractCancel/GatherBillListForCancel.jsp</result> 
+				<result name="gatherBillCancel">/WEB-INF/view/subcontractCancel/GatherBillListForCancel.jsp</result> -->
+			<!-- guo -->
+			<result name="cooperBillCancel">/WEB-INF/newview/cooper/CooperBillListForCancel.jsp
+			</result>
+			<result name="toGatherBillListForCancel">/WEB-INF/newview/cooper/GatherBillListForCancel.jsp
+			</result>
+			<result name="gatherBillListForCancel">/WEB-INF/newview/cooper/GatherBillListForCancel.jsp
+			</result>
+			<result name="gatherBillCancel">/WEB-INF/newview/cooper/GatherBillListForCancel.jsp
+			</result>
+		</action>
+
+		<action name="cooper_*"
+			class="com.erp.controller.subcontractCancel.action.BusinessBillListForCooCompAction"
+			method="{1}">
+			<result name="toCooperComp">/WEB-INF/newview/business/BusinessBillListForCooComp.jsp
+			</result>
+			<!-- <result name="toCooperCompLook">/WEB-INF/newview/business/BusinessBillForCooComp.jsp</result> -->
+		</action>
+		<action name="cooperUn_*"
+			class="com.erp.controller.subcontractCancel.action.BusinessBillListForCooUnCompAction"
+			method="{1}">
+			<result name="toCooperUnComp">/WEB-INF/newview/business/BusinessBillListForCooUnComp.jsp
+			</result>
+			<!-- <result name="toLookInfo">/WEB-INF/view/subcontractCancel/comp/BusinessBillListForCooUnComp.jsp</result> -->
+		</action>
+		<!-- guo 交易	外协	外协单改价格	外协价格 -->
+		<action name="cooperator_*"
+			class="com.erp.controller.subcontractCancel.action.CooperAction"
+			method="{1}">
+			<result name="cooperBillListForEditPrice">/WEB-INF/newview/cooper/CooperBillListForEditPrice.jsp</result>
+			<result name="estPriceList">/WEB-INF/newview/base/EstPriceList.jsp</result>
+		</action>
+	</package>
+</struts>

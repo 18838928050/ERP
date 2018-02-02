@@ -1,0 +1,123 @@
+<!--采购管理侧边栏-->
+<li>
+	<div class="link">供应商</div>
+	<ul class="submenu">
+		<li>
+			<a href="gongyingshang_dengjiUI">供应商登记</a>
+		</li>
+		<li>
+			<a href="gongyingshang_yijiao">供应商移交</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1000px', '600px'],'gongyingshang_listUI');">全部供应商</a>
+			<!-- <a href="gongyingshang_listUI">全部供应商</a> -->
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">采购</div>
+	<ul class="submenu">
+		<li>
+			<a href="#">采购单</a>
+		</li>
+		<li>
+			<!-- <a href="caigoudanshenhe_findAll">采购单审核</a> -->
+			
+			<a href="javascript:showWin(['1000px', '600px'],'caigoudanshenhe_findAll');">采购单审核</a>
+		</li>
+		<li>
+		 <a href="javascript:showWin(['1000px', '600px'],'caigoudanfanshenhe_findAll');">采购单反审核</a>
+		<!-- 	<a href="caigoudanfanshenhe_findAll">采购单反审核</a> -->
+		</li>
+		<li>
+		 <a href="javascript:showWin(['1200px', '600px'],'caigoudanyilanbiao_findAll');">采购单一览表</a>
+	
+		<!-- 	<a href="caigoudanyilanbiao_findAll">采购单一览表</a> -->
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">退货</div>
+	<ul class="submenu">
+		<li>
+			<a href="#">退货单</a>
+		</li>
+		<li>
+		<!-- 	<a href="tuihuodanshenhe_findAll">退货单审核</a> -->
+				 <a href="javascript:showWin(['1000px', '600px'],'tuihuodanshenhe_findAll');">退货单审核</a>
+		</li>
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'tuihuodanfanshenhe_findAll');">退货单反审核</a>
+		<!-- 	<a href="tuihuodanfanshenhe_findAll">退货单反审核</a> -->
+		</li>
+		<li>
+			<!-- <a href="tuihuodanyilanbiao_findAll">退货单一览表</a> -->
+				 <a href="javascript:showWin(['1000px', '600px'],'tuihuodanyilanbiao_findAll');">退货单一览表</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">对账</div>
+	<ul class="submenu">
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'caigouduizhang_findAll');">采购对账</a>
+			<!-- <a href="caigouduizhang_findAll">采购对账</a> -->
+		</li>
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'caigoumingxi_findAll');">采购明细表</a>
+			<!-- <a href="caigoumingxi_findAll">采购明细表</a> -->
+		</li>
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'caigouhuizongbiao_findAll');">供应商采购汇总表*</a>
+			<!-- <a href="caigouhuizongbiao_findAll">供应商采购汇总表*</a> -->
+		</li>
+		<li>
+			<!-- <a href="#">材料采购汇总表*</a> -->
+				 <a href="javascript:showWin(['1000px', '600px'],'cailiaocaigouhuizong_findAll');">材料采购汇总表*</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">作废</div>
+	<ul class="submenu">
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'purchasecanleling_list');">采购单作废</a>
+			<!-- <a href="purchasecanleling_list">采购单作废</a> -->
+		</li>
+		<li>
+			 <a href="javascript:showWin(['1000px', '600px'],'tuikuancanleling_listtuikuan');">退货单作废</a>
+			<!-- <a href="tuikuancanleling_listtuikuan">退货单作废</a> -->
+		</li>
+	</ul>
+</li>
+<script>
+	//侧边导航栏
+	$(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {
+				el: this.el,
+				multiple: this.multiple
+			}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = $(this),
+				$next = $this.next();
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if(!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+
+		var accordion = new Accordion($('.accordion'), false);
+	});
+</script>

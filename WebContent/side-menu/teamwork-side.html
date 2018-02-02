@@ -1,0 +1,106 @@
+<!--团队管理侧边栏-->
+<li>
+	<div class="link">日程</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'MyComm_toEstabComm');">我的日程</a>
+		</li>
+		<li>
+			<a href="javascript:doCommNew();">新日程</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'base/EstCommUnderList.html');">下级日程</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '600px'],'base/EstablishmentCommunicateCalendar.html');">日历</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">公告</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'main_toMain');">所有公告</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">消息</div>
+	<ul class="submenu">
+		<li>
+			<a href="messageSendAndReceive_toIndex">发内部消息</a>
+		</li>
+		<li>
+			<a href="messageSendAndReceive_findAllMessageVOsAndReceiverDeleteIsN">收件箱</a>
+		</li>
+		<li>
+			<a href="messageSendAndReceive_findAllMessageVOsAndSendDeleteIsN">发件箱</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['900px', '500px'],'sms/SmsSendForm.html');">发短信</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '500px'],'sms/SmsSendForm.html?type=MULTI');">群发短信</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['900px', '500px'],'sms/SmsMyHistoryList.html');">短信发送记录</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">通讯录</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['760px', '400px'],'phone_toPhoneBookList');">我的通讯录</a>
+		</li>
+		<li>
+			<a href="javascript:showWin(['1024px', '600px'],'phone_toInnerPbMain');">公司内部通讯录</a>
+		</li>
+	</ul>
+</li>
+<li>
+	<div class="link">其他</div>
+	<ul class="submenu">
+		<li>
+			<a href="javascript:showWin(['500px', '620px'],'oneline_getAllOnline');">谁在线++</a>
+		</li>
+		<li> 
+			<a href="javascript:showWin(['500px', '320px'],'abouterp');">关于管理易++</a>
+		</li>
+	</ul>
+</li>
+<script>
+	//侧边导航栏
+	$(function() {
+		var Accordion = function(el, multiple) {
+			this.el = el || {};
+			this.multiple = multiple || false;
+
+			// Variables privadas
+			var links = this.el.find('.link');
+			// Evento
+			links.on('click', {
+				el: this.el,
+				multiple: this.multiple
+			}, this.dropdown)
+		}
+
+		Accordion.prototype.dropdown = function(e) {
+			var $el = e.data.el;
+			$this = $(this),
+				$next = $this.next();
+			$next.slideToggle();
+			$this.parent().toggleClass('open');
+
+			if(!e.data.multiple) {
+				$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+			};
+		}
+
+		var accordion = new Accordion($('.accordion'), false);
+	});
+</script>
