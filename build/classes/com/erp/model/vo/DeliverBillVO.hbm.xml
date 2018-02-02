@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.erp.model.vo.DeliverBillVO" table="deliver_bill">
+		<id name="id" type="long" column="id">
+			<generator class="assigned" />
+		</id>
+		<property name="billCode" type="string">
+			<column name="bill_code" length="30" not-null="true" />
+		</property>
+		<property name="deliverDate" type="timestamp">
+			<column name="deliver_date" />
+		</property>
+		<property name="linkman" type="string">
+			<column name="linkman" length="30" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" length="80" />
+		</property>
+		<property name="address" type="string">
+			<column name="address" length="100" />
+		</property>
+		<property name="businessBillId" type="long">
+			<column name="business_bill_id" not-null="true" />
+		</property>
+		<property name="createrId" type="long">
+			<column name="creater_id" not-null="true" />
+		</property>
+		<property name="createrName" type="string">
+			<column name="creater_name" length="30" />
+		</property>
+		<property name="examinerId" type="long">
+			<column name="examiner_id" not-null="true" />
+		</property>
+		<property name="examinerName" type="string">
+			<column name="examiner_name" length="30" />
+		</property>
+		<property name="examined" type="string">
+			<column name="examined" length="1" />
+		</property>
+		<property name="enabled" type="string">
+			<column name="enabled" length="1" />
+		</property>
+		<property name="disableManId" type="long">
+			<column name="disable_man_id" not-null="true" />
+		</property>
+		<property name="updateTime" type="timestamp">
+			<column name="update_time" not-null="true" />
+		</property>
+		<property name="tallySetId" type="long">
+			<column name="tally_set_id" not-null="true" />
+		</property>
+		<property name="mark" type="string">
+			<column name="mark" length="200" />
+		</property>
+		<property name="content" type="string">
+			<column name="content" length="400" />
+		</property>
+		<property name="createTime" type="timestamp">
+			<column name="create_time" />
+		</property>
+		<property name="examineTime" type="timestamp">
+			<column name="examine_time" />
+		</property>
+		<property name="deliComp" type="string">
+			<column name="deli_comp" length="100" />
+		</property>
+		<property name="deliCode" type="string">
+			<column name="deli_code" length="50" />
+		</property>
+		<property name="payModeId" type="long">
+			<column name="pay_mode_id" not-null="true" />
+		</property>
+		<property name="sended" type="string">
+			<column name="sended" length="1" />
+		</property>
+		<property name="senderId" type="long">
+			<column name="sender_id" not-null="true" />
+		</property>
+		<property name="senderName" type="string">
+			<column name="sender_name" length="30" />
+		</property>
+		<property name="sendTime" type="timestamp">
+			<column name="send_time" />
+		</property>
+    </class>
+</hibernate-mapping>

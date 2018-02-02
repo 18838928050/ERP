@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="struts_byfuww" extends="struts2">
+		<interceptors>
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="modelDriven.refreshModelBeforeResult">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack">
+		</default-interceptor-ref>
+		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 外协单一览表 -->
+			
+		<action name="waixiedanyilanbiao_*" class="com.erp.controller.action.WaixiedanyilanbiaoAction" method="{1}">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/waixiedanyilanbiao.jsp</result>
+		</action>
+		
+		<!-- 产值单登记 -->
+		<action name="chanzhi_*" class="com.erp.controller.action.ChanzhidanAction" method="{1}">
+			<result name="add">/WEB-INF/wmc/chanzhidan/chanzhidanadd.jsp</result>
+			<result name="shenheui">/WEB-INF/wmc/chanzhidan/chanzhishenhedanUI.jsp</result>
+			<result name="toshenheui" type="chain">chanzhi_shenheUI</result>
+			<result name="fanshenheUI">/WEB-INF/wmc/chanzhidan/chanzhifanshenhedanUI.jsp</result>
+			<result name="tofanshenhe" type="chain">chanzhi_fanshenheUI</result>
+			<result name="yilanbiaoui">/WEB-INF/wmc/chanzhidan/yilanbiaoui.jsp</result>
+			<result name="toyilanbiaoui" type="chain">chanzhi_liyanbiao</result>
+		</action>
+		
+		<!-- 外协商登记 -->
+		<action name="waixieshang_*" class="com.erp.controller.action.WaixieshangdengjiAction" method="{1}">
+			<result name="toadd">/WEB-INF/wmc/waixieshangdengji/CooperNew.jsp</result>
+			<result name="listall">/WEB-INF/wmc/waixieshangdengji/allcooperman.jsp</result>
+			<result name="xiangmu">/WEB-INF/wmc/waixieshangdengji/waixieshangxiangmu.jsp</result>
+			<result name="tolistall" type="chain">waixieshang_listall</result>
+			<result name="toudpate">/WEB-INF/wmc/waixieshangdengji/CooperNew.jsp</result>
+		</action>
+		
+		
+		
+		
+		<action name="yewumingxiyilanbiao_*" class="com.erp.controller.action.Yewumingxiyilanbiaoaction" method="{1}">
+				<result name="list">/WEB-INF/wmc/yewudanmingxiyilan/list.jsp</result>
+		</action>
+		
+			<!-- 送货对账 -->
+		<action name="songhuoduizhang_*" class="com.erp.controller.action.SonghuoduizhangAction" method="{1}">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/songhuoduizhang/songhuoduizhang.jsp</result>
+		<result name="duizhang">/WEB-INF/wmc/fuww/songhuoduizhang/duizhang.jsp</result>
+		</action>
+		
+		<!-- 安装单一览表 -->
+		<action name="anzhuangdanyilanbiaoo_*" method="{1}" class="com.erp.controller.action.AnzhuangdanyilanbiaooAction">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanyilanbiao/anzhuangdanyilanbiao.jsp</result>
+		<result name="toList" type="redirect">anzhuangdanyilanbiaoo_findAll</result>
+		<result name="toChakan2">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanyilanbiao/weishenheChakan.jsp</result>
+			<result name="toChakan">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanyilanbiao/yishenheChakan.jsp</result>
+			<result name="toFirstUI" type="redirect">anzhuangdanyilanbiaoo_findAll</result>
+			<result name="toWangongjsp">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanyilanbiao/Wangongjsp.jsp</result>
+			<result name="anzhuangdanchakan">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanyilanbiao/chakan.jsp</result>
+		</action>
+		<!-- 安装单反审核 --> 
+		<action name="anzhuagndanfanshenhe_*" method="{1}" class="com.erp.controller.action.anzhuagndanfanshenheAction">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanfanshenhe/anzhuangdanfanshenhe.jsp</result>
+		<result name="toList" type="redirect">anzhuagndanfanshenhe_findAll</result>
+		<result name="toChakan">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanfanshenhe/chakan.jsp</result>
+		<result name="toFirstUI" type="redirect">anzhuagndanfanshenhe_findAll</result>
+		</action>
+		<!-- 安装单审核 --> 
+		<action name="anzhuagndanshenhe_*" method="{1}" class="com.erp.controller.action.anzhuagndanshenheAction">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanshenhe/anzhuangdanshenhe.jsp</result>
+		<result name="toList" type="redirect">anzhuagndanshenhe_findAll</result>
+		<result name="toChakan">/WEB-INF/wmc/fuww/anzhuang/anzhuangdanshenhe/chakan.jsp</result>
+		<result name="toFirstUI" type="redirect">anzhuagndanshenhe_findAll</result>
+		</action>
+		<!--费用明细一览表 -->
+		<action name="feiyongmingxiyilanbiao_*" class="" method="{1}">
+		<result name="toFindAll"></result>
+		</action>
+		<!-- 其它收入一览表 -->
+		<action name="qitashouruyilanbiao_*" method="{1}" class="com.erp.controller.action.qitashouruyilanbiaoAction">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/qitashouruyilanbiao/qitashouruyilanbiao.jsp</result>
+		<result name="fanshenhe">/WEB-INF/wmc/fuww/qitashouruyilanbiao/fanshenhe.jsp</result>
+		<result name="shenhe">/WEB-INF/wmc/fuww/qitashouruyilanbiao/shenhe.jsp</result>
+		<result name="toList" type="redirect">qitashouruyilanbiao_findAll</result>
+		<result name="tuichu" type="redirect">qitashouruyilanbiao_findAll</result>
+		<result name="toXiugai">/WEB-INF/wmc/fuww/qitashouruyilanbiao/xiugai.jsp</result>
+		</action>
+		<!-- 业务对账 -->
+		<action name="yewuduizhang_*" class="com.erp.controller.action.YewuduizhangAction" method="{1}">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/yewuduizhang/yewuduizhang.jsp</result>
+		<result name="duizhang">/WEB-INF/wmc/fuww/yewuduizhang/duizhang.jsp</result>
+		</action>
+		<!-- 安装单作废 -->
+		<action name="anzhuangdanzuofei_*" method="{1}" class="com.erp.controller.action.anzhuangdanzuofeiAction">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/zuofei/anzhuangdanzuofei.jsp</result>
+		<result name="toChakan">/WEB-INF/wmc/fuww/zuofei/anzhuangdanzuofeichakan.jsp</result>
+		<result name="toList" type="redirect">anzhuangdanzuofei_findAll</result>
+		</action>
+				<!-- 安装 -->
+		<action name="anzhuang_*" class="com.erp.controller.action.anzhuangAction" method="{1}">
+			<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuang/anzhuang.jsp</result>
+			<result name="toChakan">/WEB-INF/wmc/fuww/anzhuang/chakan.jsp</result>
+			<result name="tuichu" type="redirect">anzhuang_findAll</result>
+			<result name="toKaianzhuangdan">/WEB-INF/wmc/fuww/anzhuang/kaianzhuangdan.jsp</result>
+		</action>
+		<!--  送货单作废-->
+		<action name="songhuodanzuofei_*" class="com.erp.controller.action.SongHuoAction" method="{1}">
+			<result name="listui">/WEB-INF/view/songhuodanzuofei/listui.jsp</result>
+			<result name="chakan">/WEB-INF/view/songhuodanzuofei/chakan.jsp</result>
+		</action>
+		<!-- 安装单完工 -->
+		<action name="anzhuandanwangong_*" class="com.erp.controller.action.anzhuangdanwangongAction" method="{1}">
+			<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuandanwangong/anzhuangdanwangong.jsp</result>
+			<result name="toChakan">/WEB-INF/wmc/fuww/anzhuandanwangong/chakan.jsp</result>
+			<result name="wangongdan">/WEB-INF/wmc/fuww/anzhuandanwangong/wangong.jsp</result>
+			<result name="toFirstUI" type="redirect">anzhuandanwangong_findAll</result>
+		</action>
+		<!-- 安装单反完工 -->
+		<action name="anzhuandanfanwangong_*" class="com.erp.controller.action.anzhuangdanfanwangongAction" method="{1}">
+			<result name="toFindAll">/WEB-INF/wmc/fuww/anzhuangdanfanwangong/anzhuangdanfanwangong.jsp</result>
+			<result name="toFirstUI" type="redirect">anzhuandanfanwangong_findAll</result>
+		</action>
+		<!-- 业务单作废 -->
+		
+		<action name="yewudanzuofei_*" class="com.erp.controller.action.YewudanzuofeiAction" method="{1}">
+		<result name="tofindAll">/WEB-INF/wmc/fuww/yewudanzuofei/yewudanzuofei.jsp</result>
+		<result name="toFirstUI" type="redirect">yewudanzuofei_findAll</result>
+		<result name="toChakan">/WEB-INF/wmc/fuww/yewudanzuofei/chakan.jsp</result>
+		<result name="tuichu" type="redirect">yewudanzuofei_findAll</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <package name="struts-basedata" extends="struts2">
+   		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		
+    	
+    	<action name="MakeType_*" class="com.erp.controller.basedata.action.MakeTypeAction" method="{1}"> 
+    	  <result name="toMain">/WEB-INF/view/baseData/Main.jsp</result>
+    	  <result name="MakeTypeList">/WEB-INF/newview/base/MakeTypeList.jsp</result>
+    	  <result name="toMakeTypeEdit">/WEB-INF/newview/base/MakeTypeEdit.jsp</result>
+    	  <result name="toMakeTypeNew">/WEB-INF/newview/base/MakeTypeNew.jsp</result>
+    	</action> 
+    	
+    	<action name="MakeRequire_*" class="com.erp.controller.basedata.action.MakeRequireAction" method="{1}"> 
+    	  <result name="toMakeRequireList">/WEB-INF/newview/base/MakeReqireList.jsp</result>
+    	  <result name="toMakeReqireEdit">/WEB-INF/newview/base/MakeReqireEdit.jsp</result>
+    	  <result name="toMakeReqireNew">/WEB-INF/newview/base/MakeReqireNew.jsp</result>
+    	</action>
+    	
+     
+        <action name="AccessoryMark_*" class="com.erp.controller.basedata.action.AccessoryMarkAction" method="{1}"> 
+    	  <result name="toAccessoryMarkList">/WEB-INF/newview/base/AccessoryMarkList.jsp</result>
+    	  <result name="toAccessoryEdit">/WEB-INF/newview/base/AccessoryMarkEdit.jsp</result>
+    	  <result name="toAccessoryNew">/WEB-INF/newview/base/AccessoryMarkNew.jsp</result>
+    	</action>
+    	
+    	<action name="departStaff_*" class="com.erp.controller.basedata.action.DepartStaffAction" method="{1}"> 
+    	  <result name="toStafferMain">/WEB-INF/newview/baseData/departmentstaffer/StafferMain.jsp</result>
+    	  <result name="toDepartmentList">/WEB-INF/newview/baseData/departmentstaffer/DepartmentList.jsp</result>
+    	  <result name="toDepartmentNew">/WEB-INF/newview/baseData/departmentstaffer/DepartmentNew.jsp</result>
+    	  <result name="toStafferList">/WEB-INF/newview/baseData/departmentstaffer/StafferList.jsp</result>
+    	  <result name="toStafferNew">/WEB-INF/newview/baseData/departmentstaffer/StafferNew.jsp</result>
+    	  <result name="toStafferEdit">/WEB-INF/newview/baseData/departmentstaffer/StafferEdit.jsp</result>
+    	</action>
+    	
+    	<action name="product_*" class="com.erp.controller.basedata.action.ProductAction" method="{1}">
+    	  <result name="toProductMain">/WEB-INF/newview/baseData/material/ProductMain.jsp</result>
+    	  <result name="toProductList">/WEB-INF/newview/baseData/material/ProductList.jsp</result>
+    	  <result name="toProductTypeList">/WEB-INF/newview/baseData/material/ProductTypeList.jsp</result>
+    	  <result name="toProductTypeNew">/WEB-INF/newview/baseData/material/ProductTypeNew.jsp</result>
+    	  <result name="toProductNew">/WEB-INF/newview/baseData/material/ProductNew.jsp</result>
+    	  <result name="toProductEdit">/WEB-INF/newview/baseData/material/ProductEdit.jsp</result>
+
+    	</action> 
+    	
+    	<action name="customerLevel_*" class="com.erp.controller.basedata.action.CustomerLevelAction" method="{1}">
+    	<result name="toCustomLevelMain">/WEB-INF/newview/baseData/customer/EstablishmentLevelList.jsp</result>
+    	<result name="toCustomLevelEdit">/WEB-INF/newview/baseData/customer/EstablishmentLevelEdit.jsp</result>
+    	<result name="toCustomLevelNew">/WEB-INF/newview/baseData/customer/EstablishmentLevelNew.jsp</result>
+    	</action>
+    	
+    	<action name="customerType_*" class="com.erp.controller.basedata.action.CustomerTypeAction" method="{1}">
+    	<result name="toCustomTypeMain">/WEB-INF/newview/baseData/customer/EstablishmentTypeList.jsp</result>
+    	<result name="toCustomTypeEdit">/WEB-INF/newview/baseData/customer/EstablishmentTypeEdit.jsp</result>
+    	<result name="toCustomTypeNew">/WEB-INF/newview/baseData/customer/EstablishmentTypeNew.jsp</result>
+    	</action>
+    	
+    	<action name="unit_*" class="com.erp.controller.basedata.action.UnitAction" method="{1}">
+    	  <result name="toUnitList">/WEB-INF/newview/baseData/unit/UnitList.jsp</result>
+    	  <result name="toUnitNew">/WEB-INF/newview/baseData/unit/UnitNew.jsp</result>
+    	  <result name="toUnitEdit">/WEB-INF/newview/baseData/unit/UnitEdit.jsp</result>
+    	</action>
+    </package>
+</struts>
