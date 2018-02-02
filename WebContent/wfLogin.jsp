@@ -21,5 +21,6 @@
 <s:a action="anzhuagndanfanshenhe_findAll">安装单反审核</s:a>
 <s:a action="anzhuangdanyilanbiaoo_findAll">安装单一览表</s:a>
 <s:a action="yewudanzuofei_findAll">业务单作废</s:a>
+<s:a action="waixiedanyilanbiao_findAll">外协单一览表</s:a>
 </body>
 </html>

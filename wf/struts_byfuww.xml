@@ -15,7 +15,11 @@
 		</default-interceptor-ref>
 		<!-- 使用通配符 -->
 		<global-allowed-methods>regex:.*</global-allowed-methods>
-		
+		<!-- 外协单一览表 -->
+			
+		<action name="waixiedanyilanbiao_*" class="com.erp.controller.action.WaixiedanyilanbiaoAction" method="{1}">
+		<result name="toFindAll">/WEB-INF/wmc/fuww/waixiedanyilanbiao.jsp</result>
+		</action>
 		
 		<!-- 产值单登记 -->
 		<action name="chanzhi_*" class="com.erp.controller.action.ChanzhidanAction" method="{1}">
