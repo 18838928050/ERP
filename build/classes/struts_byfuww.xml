@@ -15,10 +15,13 @@
 		</default-interceptor-ref>
 		<!-- 使用通配符 -->
 		<global-allowed-methods>regex:.*</global-allowed-methods>
+<<<<<<< HEAD
 		<!--外协明细一览表  -->
 		<action name="waixiemingxiyilanbiaoo_*" class="com.erp.controller.action.WaixiemingxiyilanbiaoAction" method="{1}">
 		<result name="toFindAll">/WEB-INF/wmc/fuww/waixiemingxiyilanbiao.jsp</result>
 		</action>
+=======
+>>>>>>> b25985936a1f1c8766072b68e1f73147c93e8f66
 		<!-- 外协单一览表 -->
 			
 		<action name="waixiedanyilanbiao_*" class="com.erp.controller.action.WaixiedanyilanbiaoAction" method="{1}">
