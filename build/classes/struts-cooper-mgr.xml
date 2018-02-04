@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <package name="struts-cooper" extends="struts2"> 
+   		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+	    <!-- 外协收货 -->
+		<action name="cooperGather_*" class="com.erp.controller.cooper.action.CooperGatherAction" method="{1}">
+		<result name="toCooperGather">/WEB-INF/newview/cooper/gather/CooperBillListForGather.jsp</result>
+		<result name="toCooperRelBill">/WEB-INF/newview/cooper/gather/CooperRelBillList.jsp</result>
+		<result name="toGatherBillNew">/WEB-INF/newview/cooper/gather/GatherBillNew.jsp</result>
+		</action>
+		<!-- 收货单审核 -->		
+		<action name="gatherE_*" class="com.erp.controller.cooper.action.GatherExamineAction" method="{1}">
+		<result name="toGatherExamine">/WEB-INF/newview/cooper/gather/GatherBillListForExamine.jsp</result>
+		<result name="toGatherBillInfo">/WEB-INF/newview/cooper/gather/GatherBillInfoForExamine.jsp</result>
+		</action>
+		<!--收货单反审核  -->
+		<action name="gatherEUn_*" class="com.erp.controller.cooper.action.GatherUnExamineAction" method="{1}">
+		<result name="toGatherUnExamine">/WEB-INF/newview/cooper/gather/GatherBillListForUnExamine.jsp</result>
+		<result name="toGatherBillInfoForUnExamine">/WEB-INF/newview/cooper/gather/GatherBillInfoForUnExamine.jsp</result>
+		</action>
+		<!-- 收货单一览表 -->
+		<action name="gatherD_*" class="com.erp.controller.cooper.action.GatherDetailAction" method="{1}">
+		<result name="toGatherDetail">/WEB-INF/newview/cooper/gather/GatherBillSearchResult.jsp</result>
+		<result name="toGatherBillForUnExamine">/WEB-INF/newview/cooper/gather/GatherBillInfoForUnExamine.jsp</result>
+		<result name="toGatherBillEdit">/WEB-INF/newview/cooper/gather/GatherBillEdit.jsp</result>
+		</action>
+		
+		
+    </package>
+</struts>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="struts-business" extends="struts2" namespace="/">
+   		<!-- 使用通配符 -->
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+    	<action name="BusinessBillVTO_*" class="com.erp.controller.business.action.BusinessBillVTOAction" method="{1}"> 
+    	  <result name="toBusinessBillSearchResult">/WEB-INF/newview/base/EstablishmentListForSelectCLIENT.jsp</result>
+    	  <result name="toBusinessBillListForExamine">/WEB-INF/view/business/BusinessBillListForExamine.jsp</result>
+    	  <result name="toBusinessBillListForUnExamine">/WEB-INF/view/business/BusinessBillListForUnExamine.jsp</result>
+    	</action>
+    	
+    	<action name="Business_*" class="com.erp.controller.business.action.BusinessAction" method="{1}">
+    	  <result name="toProductMainForSelect">/WEB-INF/newview/base/ProductMainForSelectForBusiness.jsp</result>
+    	  <result name="findStaffer">/WEB-INF/newview/base/reStafferListForSelect.jsp</result>
+    	  <result name="tofindDepartment">/WEB-INF/newview/base/relDepartmentListForStafferSelect.jsp</result>
+    	  <result name="toStafferMainForSelect">/WEB-INF/newview/base/StafferMainForSelect.jsp</result>
+    	  <result name="toAccessoryList">/WEB-INF/newview/business/AccessoryList.jsp</result>
+    	  <result name="toBusinessList">/WEB-INF/newview/base/EstablishmentListForSelectCLIENT.jsp</result>
+    	  <result name="toBusinessBegian">/WEB-INF/newview/business/BusinessBillNew.jsp</result>
+    	  <result name="toMakeTypeList">/WEB-INF/newview/base/MakeTypeListForSelect.jsp</result>
+    	  <result name="toDepartmentListForStafferSelect">/WEB-INF/newview/base/ProductTypeListForProductSelectforBusiness.jsp</result>
+    	  <result name="toProductTypeListForProductSelect">/WEB-INF/newview/base/ProductListForSelectforBusiness.jsp</result>
+    	  <result name="toMakeRequireListForSelect">/WEB-INF/newview/base/MakeRequireListForSelect.jsp</result>
+    	  <result name="toWorkCenterListForSelect">/WEB-INF/newview/base/WorkCenterListForSelect.jsp</result>
+    	</action> 
+    </package>
+    <!-- ajax -->
+    	<package name="simpletonBusiness" extends="struts-default,json-default">
+	    	<action name="BusinessPriceAjax" class="com.erp.controller.business.action.BusinessAction" method="BusinessPriceAjax">
+				<result name="fail"></result>
+				<result type="json">
+					<param name="root">result</param>
+				</result>
+			</action>
+	    </package>
+</struts>

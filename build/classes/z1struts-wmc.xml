@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+		<package name="wmc" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+			<!--  谁在线-->
+			<action name="oneline_*" class="com.erp.controller.action.WhoOnelineAction" method="{1}">
+					<result name="online">WEB-INF/wmc/online/online.jsp</result>
+			</action>
+			<!-- 管理管理易 -->
+		<action name="abouterp" class="com.erp.controller.action.AboutERP">
+				<result name="about">WEB-INF/wmc/online/abouterp.jsp</result>
+		</action>
+		
+		<!-- 上传文件一览表 -->
+		<action name="uploadfileViews_*" class="com.erp.controller.action.UploadFileViewAction" method="{1}">
+				<result name="list">WEB-INF/wmc/kehuyewu/shangchuanwenjianyilanbiaoList.jsp</result>
+		</action>
+		
+		</package>
+	
+  
+</struts>
